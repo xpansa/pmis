@@ -33,7 +33,8 @@
                             <field name="product_id" on_change="on_change_product_id(product_id)"/>
                             <field name="unit_amount"/>
                             <field name="product_uom_id"/>
-                            <!--<field name="price_unit" required="True" on_change="on_change_price_unit_resource(price_unit)"/>-->
+                            <field name="price_unit"/>
+                            <field name="subtotal"/>
                         </group>
                         <!--<group colspan="2" col="4"  string="Analytic Information" groups="analytic.group_analytic_accounting">
                             <field name="version_id"/>
