@@ -296,6 +296,13 @@ class AnalyticResourcePlanLine(orm.Model):
                 res['value'].update({'date': account.date})
         return res
 
+    def create(self, cr, uid, vals, context=None):
+        if 'project' in vals:
+            pp = self.pool.get('project.project')
+            pp_obj = pp.browse(cr, uid, vals['project'])
+            vals['account_id'] = pp_obj.analytic_account_id.id
+        return super(AnalyticResourcePlanLine, self).create(cr, uid, vals, context=context)
+
     def write(self, cr, uid, ids, vals, context=None):
         if context is None:
             context = {}
